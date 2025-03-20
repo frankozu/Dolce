@@ -110,7 +110,7 @@ img {
 
 /* ========== HERO SECTION (HOME PAGE) ========== */
 .hero-section {
-  background: url("bilderhemsida/Dolce-Index.jpg") no-repeat bottom center;
+  background: url("bilderhemsida/Dolce-Index1.jpg") no-repeat bottom center;
   background-size: cover; 
   min-height: 103.7vh;
   display: flex;
@@ -242,25 +242,25 @@ footer p {
 /* Upside-down U-Shaped container */
 .contact-container {
   background-color: rgba(255, 248, 225, 0.9);
-  width: 1000px;
+  width: 750px;
   padding: 0em 1.5rem;
-  margin-bottom: -238px;
+  margin-top: 200px;
   border: 1.5px solid #fff;
   border-top-left-radius: 500px;
   border-top-right-radius: 500px;
   box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
   text-align: center;
 }
-
+/* - */
 .contact-container h1,
 .contact-container p {
   color: #333;
-  margin-top: 15px;
+  margin-top: 50px;
 }
 
 .contact-container p {
   font-size: 1rem;
-  margin: 0.5rem 0;
+  margin: 0rem 0;
   
 }
 
@@ -277,6 +277,7 @@ footer p {
   border-top-left-radius: 250px;
   border-top-right-radius: 250px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  
 }
 
 
@@ -350,7 +351,7 @@ footer p {
     grid-template-columns: repeat(5, 1fr);
   }
   .hero-section {
-    background: url("bilderhemsida/Dolce-Index.jpg") no-repeat bottom center;
+    background: url("bilderhemsida/Dolce-Index1.jpg") no-repeat bottom center;
     background-size: cover;
   }
   .hero-text {
