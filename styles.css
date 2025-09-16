@@ -1,0 +1,508 @@
+/* RESET & GLOBALS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Force no horizontal scroll (avoid white line on the right) */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #fff; /* Body text is white by default */
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ========== HEADER & NAV ========== */
+.site-header {
+  width: 100%;
+  height: 60px; 
+  background: transparent;
+  position: fixed;
+  top: 0; left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 999; /* ensures header is above hero */
+
+}
+
+/* Container for brand + nav menu + hamburger */
+.nav-container {
+  width: 90%;
+  max-width: 1500px;
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* brand, nav-menu, hamburger */
+  align-items: center;
+  
+}
+/* BRAND (Logo) */
+.brand {
+  font-weight: normal;
+  white-space: normal;
+}
+
+.brand img.dolce-logo {
+  height: 80px;
+  width: auto;
+  display: block;
+}
+
+/* NAV MENU - toggled open/closed by hamburger */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 3.5rem;
+  position: relative; /* for the pseudo-element underline */
+}
+
+
+
+/* Each menu link */
+.nav-menu li a {
+  color: #FFF8E1;      
+  text-decoration: none; 
+  font-weight: 600;
+  position: relative;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.nav-menu li a:hover::after,
+.nav-menu li a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ff7eb9;
+}
+
+/* Remove focus outline/caret on right-click/focus */
+.nav-menu li a:focus {
+  outline: none;
+  caret-color: transparent;
+}
+
+/* HAMBURGER (always visible) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  align-items: flex-end;
+}
+
+
+
+
+/* ========== HERO SECTION (HOME PAGE) ========== */
+.hero-section {
+  background: url("bilderhemsida/Dolce-Index1.jpg") no-repeat bottom center;
+  background-size: cover; 
+  min-height: 103.7vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 60px; /* avoid overlap under header */
+}
+
+.hero-content {
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Positioning text on the image */
+.hero-text {
+  margin-left: 49rem;
+  margin-bottom: 7rem;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.4rem;
+}
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #FFF8E1; 
+}
+
+/* Pink CTA button */
+.order-btn {
+  text-decoration: none;
+  display: inline-block; /* ensure padding is clickable */
+  background-color: #ff7eb9;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+.order-btn:hover {
+  background-color: #ff63a5;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  background-color: #FFF8E1;
+  text-align: center;
+  padding: 0.5rem 0;
+  width: 100%;
+}
+
+footer p {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* Section background: airy sky or clouds */
+.about-page {
+  min-height: 100vh;
+  background: url("bilderhemsida/contact-image1.jpg") no-repeat center center;
+  background-size: cover;
+  display: flex;            /* to center content */
+  align-items: center;
+  justify-content: center;
+  padding-top: 60px;        /* avoid overlap with fixed header */
+}
+
+/* Wrapper for the circle containers */
+.circles-wrapper {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;         /* so circles wrap on smaller screens */
+  justify-content: center; /* center them horizontally */
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Each circle container */
+.circle-container {
+  width: 300px;
+  height: 300px;
+  background-color: rgba(255, 248, 225, 0.9);
+  border-radius: 50%;       /* makes it a perfect circle */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;  
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  color: #333;           
+}
+
+.circle-container h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.circle-container p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+
+
+/* ========== SIMPLE PAGE CONTENT (CONTACT) ========== */
+.simple-page-content1 {
+  background: url("bilderhemsida/contact-image1.jpg") no-repeat top center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.hero-content-c {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  min-height: 100vh;
+  margin-left: 0; 
+  margin-top: 0;
+}
+
+/* Upside-down U-Shaped container */
+.contact-container {
+  background-color: rgba(255, 248, 225, 0.9);
+  width: 750px;
+  padding: 0em 1.5rem;
+  margin-top: 200px;
+  border: 1.5px solid #fff;
+  border-top-left-radius: 500px;
+  border-top-right-radius: 500px;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+/* - */
+.contact-container h1,
+.contact-container p {
+  color: #333;
+  margin-top: 50px;
+}
+
+.contact-container p {
+  font-size: 1rem;
+  margin: 0rem 0;
+  
+}
+
+.map-embed {
+  margin-top: -0.4rem; /* spacing above map */
+  display: flex;
+  justify-content: center; /* center the iframe horizontally */
+}
+.map-embed iframe {
+  max-width: 100%;
+  border: none;
+  padding: 0em 0rem;
+  margin-top: 5rem;
+  border-top-left-radius: 250px;
+  border-top-right-radius: 250px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  
+}
+
+
+
+/* ========== FLAVORS PAGE ========== */
+.flavors-page {
+  text-align: center;
+  padding: 6rem; 
+  flex: 1;
+}
+
+.flavors-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 columns on large screens */
+  gap: 1.5rem;
+  margin: -2rem auto; 
+  max-width: 1400px; 
+  margin-top: 0.01rem;
+}
+
+/* Flavor Cards */
+.flavor-item {
+  background-color: #fff;
+  border-radius: 18px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  transition: box-shadow 0.3s ease;
+  overflow: hidden;
+  text-align: center;
+  padding: 2rem;
+}
+.flavor-item:hover {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.flavor-item img {
+  width: 100%;
+  aspect-ratio: 1 / 2; 
+  object-fit: cover;
+  border-radius: 4px;
+}
+.flavor-item h3 {
+  margin-bottom: 0.3rem;
+  font-size: 1rem;
+  color: #333;
+}
+.flavor-item p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* ========== RESPONSIVE BREAKPOINTS ========== */
+/* (A) MAX-WIDTH: 1440px */
+@media (max-width: 1440px) {
+  .hero-text {
+    margin-left: 20rem;
+    margin-bottom: 5rem;
+    margin-top: 4.5rem; 
+    text-align: center;
+  }
+  .order-btn {
+    margin-left: 0px;
+  }
+  
+
+}
+
+/* (B) MAX-WIDTH: 1024px */
+@media (max-width: 1024px) {
+  .flavors-grid {
+    /* reduce columns to 5 or 4 if desired */
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .hero-section {
+    background: url("bilderhemsida/Dolce-Index1.jpg") no-repeat bottom center;
+    background-size: cover;
+  }
+  .hero-text {
+    margin-left: 300px;
+    margin-bottom: 200px;
+    margin-top: 4.5rem; 
+    text-align: center;
+  }
+  .order-btn {
+    margin-left: 0px;
+  }
+
+}
+
+
+@media (min-width: 901px) {
+  /* Hide hamburger on desktop */
+  .hamburger {
+    display: none;
+  }
+  /* Show nav menu horizontally on desktop */
+  .nav-menu {
+    display: flex;
+    position: static;
+    background: transparent;
+    box-shadow: none;
+  }
+  
+}
+
+/* (C) MAX-WIDTH: 900px */
+@media (max-width: 900px) {
+  /* Show hamburger on mobile */
+  .hamburger {
+    display: flex;
+  }
+  /* Hide the nav menu until toggled by .show class */
+  .nav-menu {
+    display: none; 
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* below header */
+    right: 0;
+    background: #333;
+    padding: 1rem;
+    gap: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 0 0 0 8px;
+    z-index: 9999; /* ensure it appears above other elements */
+  }
+  /* When JS adds .show, display it */
+  .nav-menu.show {
+    display: flex;
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #FFF8E1; 
+    border-radius: 2px;
+  }
+}
+
+  /* Show hamburger on mobile */
+  .hamburger {
+    display: flex;
+}
+
+
+/* (D) MAX-WIDTH: 768px */
+@media (max-width: 768px) {
+  .hero-text {
+    margin-top: 2rem;
+    margin-left: 7rem;
+    text-align: center;
+  }
+  .order-btn {
+    margin-left: 0px;
+  }
+  .flavors-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .hero-section {
+    background: url("bilderhemsida/dolcemobile .jpg") no-repeat bottom center;
+    background-size: cover;
+  }
+}
+
+/* (E) MAX-WIDTH: 600px (mobile) */
+@media (max-width: 600px) {
+  .hero-section {
+    background: url("bilderhemsida/dolce 600.jpg") no-repeat bottom center;
+    background-size: 100%;
+    min-height: 96vh;
+  }
+  .order-btn {
+    margin-left: 0px;
+  }
+  .hero-text {
+    margin-top: 5rem;
+    margin-left: 5rem;
+    text-align: center;
+  }
+
+  .flavors-page {
+    /* Make background fill screen */
+    min-height: calc(100vh - 60px);
+    background: url("bilderhemsida/bluebackground.jpg") no-repeat center center;
+    background-size: cover;
+    padding-bottom: 2rem; 
+    text-align: center;
+  }
+
+  .flavors-grid {
+    /* 2 columns -> bigger images */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1rem auto;
+    max-width: 100%;
+  }
+
+.h1 {
+
+  margin-top: 50px;
+
+}
+
+.contact-container p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  
+}
+
+
+  .hero-text h1 {
+    font-size: 2em;
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #FFF8E1; 
+    border-radius: 2px;
+  }
+
+  .footercontact {
+    background-color: #FFF8E1;
+    text-align: center;
+    padding: 0.5rem 0;
+    width: 100%;
+    padding-top: 50px;
+  }
+
+}
